@@ -1,14 +1,15 @@
 import _ from 'lodash';
-import printMe from './print';
+import getWeather from './data';
 import './style.css';
-function component() {
-    const element = document.createElement('div');
- 
-    // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-   element.classList.add('hello');
- 
-    return element;
+
+async function main(){
+
+  try {
+    const data = await getWeather();
+    console.log(data);
   }
-  
-  document.body.appendChild(component());
+  catch (error){
+    console.error('An error has ocurred: ', error)
+  }  
+}
+main();
