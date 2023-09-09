@@ -3,19 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Forecast</title>
 </head>
 <body>
-    <h1>Weather Search</h1>
     <form id="weatherForm">
         <label for="city">Enter City:</label>
         <input type="text" id="city" name="city" required>
-        <button type="submit">Get Weather</button>
+        <button type="submit" id="subtmitBtn">Get Weather</button>
     </form>
 
-    <!-- Display Weather Information -->
     <div id="weatherInfo">
-        <!-- Weather data will be displayed here -->
-    </div>
+        <!-- current day -->
+        <p id="cityResult"></p>
+        <p><span id="currentDay"></span></p>
+        <p>Current Temperature: <span id="currentTemp"></span></p>
+        <p>High Temperature: <span id="currentHigh"></span></p>
+        <p>Low Temperature: <span id="currentLow"></span></p>
+        <p>Condition: <span id="currentCondition"></span></p>
+        <p>Feels Like: <span id="feelsLikeTemp"></span></p>
+        <p>Humidity: <span id="humidity"></span></p>
+        <!-- Days after current day -->
+        <ul id="forecastList">
+          <li>
+            <p><span id="forecastDay1"></span></p>
+            <p>High Temperature: <span id="forecastHigh1"></span></p>
+            <p>Low Temperature: <span id="forecastLow1"></span></p>
+            <p>Condition: <span id="forecastCondition1"></span></p>
+          </li>
+          <li>
+            <p><span id="forecastDay2"></span></p>
+            <p>High Temperature: <span id="forecastHigh2"></span></p>
+            <p>Low Temperature: <span id="forecastLow2"></span></p>
+            <p>Condition: <span id="forecastCondition2"></span></p>
+          </li>
+          <li>
+            <p><span id="forecastDay3"></span></p>
+            <p>High Temperature: <span id="forecastHigh3"></span></p>
+            <p>Low Temperature: <span id="forecastLow3"></span></p>
+            <p>Condition: <span id="forecastCondition3"></span></p>
+          </li>
+        </ul>
+      </div>
 </body>
 </html>

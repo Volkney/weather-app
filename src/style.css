@@ -1,4 +1,9 @@
-.hello{
-    color: red;
-    background: url(/src/images/dune.jpg);
+/* #weatherInfo {
+    display: none;
+} */
+
+#forecastList{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
 }
