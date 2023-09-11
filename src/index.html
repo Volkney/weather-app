@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --> 
     <title>Weather Forecast</title>
 </head>
 <body>
@@ -18,30 +18,32 @@
         <p id="cityResult"></p>
         <p><span id="currentDay"></span></p>
         <p><span id="currentCondition"></span></p>
-        <img id="currentConditionIcon" src="" alt="Weather Icon">
+        <img class="currentConditionIcon icon" alt="Weather Icon">
         <p>Current Temperature: <span id="currentTemp"></span></p>
         <p>H: <span id="currentHigh"></span></p>
         <p>L: <span id="currentLow"></span></p>
         <p>Feels Like: <span id="feelsLikeTemp"></span></p>
         <p>Humidity: <span id="humidity"></span></p>
-        <i class="fa-solid fa-sun"></i> <!-- this is just a test element -->
         <!-- Days after current day -->
         <ul id="forecastList">
           <li>
             <p><span id="forecastDay1"></span></p>
             <p><span id="forecastCondition1"></span></p>
+            <img class="dayOneConditionIcon icon" alt="Weather Icon">
             <p>H: <span id="forecastHigh1"></span></p>
             <p>L: <span id="forecastLow1"></span></p>
           </li>
           <li>
             <p><span id="forecastDay2"></span></p>
             <p> <span id="forecastCondition2"></span></p>
+            <img class="dayTwoConditionIcon icon" alt="Weather Icon">
             <p>H: <span id="forecastHigh2"></span></p>
             <p>L: <span id="forecastLow2"></span></p>
           </li>
           <li>
             <p><span id="forecastDay3"></span></p>
             <p><span id="forecastCondition3"></span></p>
+            <img class="dayThreeConditionIcon icon" alt="Weather Icon">
             <p>H: <span id="forecastHigh3"></span></p>
             <p>L: <span id="forecastLow3"></span></p>
           </li>

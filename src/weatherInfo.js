@@ -11,15 +11,19 @@ export default async function weatherInfo(data) {
 
     const currentDay = document.getElementById('currentDay');
     currentDay.textContent = getWeekDay(data.forecast.forecastday[0].date);
+    /* current weather condition icon handler */
+    const currentCondition = document.getElementById('currentCondition');
+    currentCondition.textContent = await data.forecast.forecastday[0].day.condition.text;
+
+    const currentConditionIcon = document.querySelector('.currentConditionIcon');
+    currentConditionIcon.src = await data.current.condition.icon; // Uses the icon provided by the API
+    currentConditionIcon.alt = "Weather Icon";
 
     const currentHigh = document.getElementById('currentHigh');
     currentHigh.textContent = await data.forecast.forecastday[0].day.maxtemp_f;
 
     const currentLow = document.getElementById('currentLow');
     currentLow.textContent = await data.forecast.forecastday[0].day.mintemp_f;
-
-    const currentCondition = document.getElementById('currentCondition');
-    currentCondition.textContent = await data.forecast.forecastday[0].day.condition.text;
 
     const feelsLikeTemp = document.getElementById('feelsLikeTemp');
     feelsLikeTemp.textContent = await data.current.feelslike_f;
@@ -31,6 +35,10 @@ export default async function weatherInfo(data) {
     const forecastDay1 = document.getElementById('forecastDay1');
     forecastDay1.textContent = getWeekDay(data.forecast.forecastday[1].date);
 
+    const dayOneConditionIcon = document.querySelector('.dayOneConditionIcon');
+    dayOneConditionIcon.src = await data.forecast.forecastday[1].day.condition.icon; // Uses the icon provided by the API
+    dayOneConditionIcon.alt = "Weather Icon Day One";
+
     const forecastHigh1 = document.getElementById('forecastHigh1');
     forecastHigh1.textContent = await data.forecast.forecastday[1].day.maxtemp_f;
 
@@ -40,13 +48,16 @@ export default async function weatherInfo(data) {
     const forecastCondition1 = document.getElementById('forecastCondition1');
     forecastCondition1.textContent = await data.forecast.forecastday[1].day.condition.text;
 
-    // Repeat the above pattern for Day 2 and Day 3
     // Forecast for Day 2
     const forecastDay2 = document.getElementById('forecastDay2');
     forecastDay2.textContent = getWeekDay(data.forecast.forecastday[2].date);
 
     const forecastHigh2 = document.getElementById('forecastHigh2');
     forecastHigh2.textContent = await data.forecast.forecastday[2].day.maxtemp_f;
+
+    const dayTwoConditionIcon = document.querySelector('.dayTwoConditionIcon');
+    dayTwoConditionIcon.src = await data.forecast.forecastday[2].day.condition.icon; // Uses the icon provided by the API
+    dayTwoConditionIcon.alt = "Weather Icon Day Two";
 
     const forecastLow2 = document.getElementById('forecastLow2');
     forecastLow2.textContent = await data.forecast.forecastday[2].day.mintemp_f;
@@ -57,6 +68,10 @@ export default async function weatherInfo(data) {
     // Forecast for Day 3
     const forecastDay3 = document.getElementById('forecastDay3');
     forecastDay3.textContent = getWeekDay(data.forecast.forecastday[3].date);
+
+    const dayThreeConditionIcon = document.querySelector('.dayThreeConditionIcon');
+    dayThreeConditionIcon.src = await data.forecast.forecastday[3].day.condition.icon; // Uses the icon provided by the API
+    dayThreeConditionIcon.alt = "Weather Icon Day Three";
 
     const forecastHigh3 = document.getElementById('forecastHigh3');
     forecastHigh3.textContent = await data.forecast.forecastday[3].day.maxtemp_f;
