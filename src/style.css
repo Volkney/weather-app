@@ -1,6 +1,11 @@
+/* * {
+    border: 1px solid black;
+}
+ */
 /* #weatherInfo {
     display: none;
 } */
+
 
 #forecastList{
     list-style: none;

@@ -1,4 +1,5 @@
 import { getWeekDay } from './weekDay';
+import { getWeatherDescriptionByCode } from './weatherIcons';
 
 export default async function weatherInfo(data) {
   try {
@@ -81,7 +82,8 @@ export default async function weatherInfo(data) {
 
     const forecastCondition3 = document.getElementById('forecastCondition3');
     forecastCondition3.textContent = await data.forecast.forecastday[3].day.condition.text;
-  } catch (err) {
+    getWeatherDescriptionByCode();
+} catch (err) {
     console.log('The error is: ', err);
   }
 }
