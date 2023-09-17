@@ -1,15 +1,3 @@
-import weatherConditions from './weatherCondition.json';
-
-export function getWeatherDescriptionByCode(code) {
-    const condition = weatherConditions.find(item => item.code === code);
-    if (condition) {
-        return condition.day;
-    } else {
-        return 'Unknown';
-    }
-    
-}
-
 export function getWeatherIconByCode(code) {
     const iconMapping = {
         1000: "sunny.svg",
@@ -63,6 +51,7 @@ export function getWeatherIconByCode(code) {
     }
 
     if (iconMapping[code]) {
+        console.log(iconMapping[code]);
         return iconMapping[code];
     } else {
         return 'cloud-refresh.svg'; // Return a default icon if the code doesn't match any in the mapping

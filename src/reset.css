@@ -1,0 +1,38 @@
+html, body, div, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl, dt, dd, img, form, fieldset, legend, input, textarea, button, select, option {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    border: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+}
+
+a img {
+    border: none;
+}
+
+body {
+    line-height: 1.5;
+}

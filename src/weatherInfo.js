@@ -1,5 +1,4 @@
 import { getWeekDay } from './weekDay';
-import { getWeatherDescriptionByCode } from './weatherIcons';
 import {getWeatherIconByCode} from './weatherIcons';
 
 function setWeatherIconPath (element, conditionCode) {
@@ -21,8 +20,7 @@ export default async function weatherInfo(data) {
     const currentDay = document.getElementById('currentDay');
     currentDay.textContent = getWeekDay(data.forecast.forecastday[0].date);
     const currentCondition = document.getElementById('currentCondition');
-    currentCondition.textContent = await data.forecast.forecastday[0].day.condition.text;
-    const currentConditionIcon = document.querySelector('.currentConditionIcon');
+    currentCondition.textContent = await data.current.condition.text;
     
     const currentHigh = document.getElementById('currentHigh');
     currentHigh.textContent = await data.forecast.forecastday[0].day.maxtemp_f;
@@ -62,28 +60,15 @@ export default async function weatherInfo(data) {
     const forecastCondition2 = document.getElementById('forecastCondition2');
     forecastCondition2.textContent = await data.forecast.forecastday[2].day.condition.text;
 
-    // Forecast for Day 3
-    const forecastDay3 = document.getElementById('forecastDay3');
-    forecastDay3.textContent = getWeekDay(data.forecast.forecastday[3].date);
-
-    const forecastHigh3 = document.getElementById('forecastHigh3');
-    forecastHigh3.textContent = await data.forecast.forecastday[3].day.maxtemp_f;
-
-    const forecastLow3 = document.getElementById('forecastLow3');
-    forecastLow3.textContent = await data.forecast.forecastday[3].day.mintemp_f;
-
-    const forecastCondition3 = document.getElementById('forecastCondition3');
-    forecastCondition3.textContent = await data.forecast.forecastday[3].day.condition.text;
 
     const iconElements = [
         document.querySelector('.currentConditionIcon'),
         document.querySelector('.dayOneConditionIcon'),
         document.querySelector('.dayTwoConditionIcon'),
-        document.querySelector('.dayThreeConditionIcon')
     ];
 
     /* Set up for weather condition */
-    for (let i = 0; i <= 3; i++ ){
+    for (let i = 0; i <= 2; i++ ){
         let conditionCode;
         if (i === 0) {
             conditionCode = data.current.condition.code;
@@ -92,7 +77,6 @@ export default async function weatherInfo(data) {
         }
         setWeatherIconPath(iconElements[i], conditionCode);
     }
-    getWeatherDescriptionByCode();
 } catch (err) {
     console.log('The error is: ', err);
   }

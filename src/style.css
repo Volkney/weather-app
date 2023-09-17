@@ -13,7 +13,8 @@
     justify-content: space-evenly;
 }
 
-.currentConditionIcon {
+.icon {
     height: 64px;
     width: 64px;
-}
+/*     filter: brightness(0) saturate(100%) invert(100%) sepia(51%) saturate(313%) hue-rotate(203deg) brightness(114%) contrast(93%);;
+ */}
