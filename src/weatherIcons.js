@@ -1,7 +1,6 @@
 import weatherConditions from './weatherCondition.json';
 
 export function getWeatherDescriptionByCode(code) {
-
     const condition = weatherConditions.find(item => item.code === code);
     if (condition) {
         return condition.day;

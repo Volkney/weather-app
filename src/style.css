@@ -12,3 +12,8 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.currentConditionIcon {
+    height: 64px;
+    width: 64px;
+}

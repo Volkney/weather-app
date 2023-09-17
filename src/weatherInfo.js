@@ -1,5 +1,13 @@
 import { getWeekDay } from './weekDay';
 import { getWeatherDescriptionByCode } from './weatherIcons';
+import {getWeatherIconByCode} from './weatherIcons';
+
+function setWeatherIconPath (element, conditionCode) {
+    const iconPath = getWeatherIconByCode(conditionCode);
+    const weatherIcon = require(`./images/svg/${iconPath}`);
+    element.src = weatherIcon;
+    element.alt = `${iconPath} icon`;
+}
 
 export default async function weatherInfo(data) {
   try {
@@ -12,14 +20,11 @@ export default async function weatherInfo(data) {
 
     const currentDay = document.getElementById('currentDay');
     currentDay.textContent = getWeekDay(data.forecast.forecastday[0].date);
-    /* current weather condition icon handler */
     const currentCondition = document.getElementById('currentCondition');
     currentCondition.textContent = await data.forecast.forecastday[0].day.condition.text;
-
     const currentConditionIcon = document.querySelector('.currentConditionIcon');
-    currentConditionIcon.src = await data.current.condition.icon; // Uses the icon provided by the API
-    currentConditionIcon.alt = "Weather Icon";
-
+    setWeatherIconPath(currentConditionIcon, data.current.condition.code);
+    
     const currentHigh = document.getElementById('currentHigh');
     currentHigh.textContent = await data.forecast.forecastday[0].day.maxtemp_f;
 
@@ -35,10 +40,6 @@ export default async function weatherInfo(data) {
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');
     forecastDay1.textContent = getWeekDay(data.forecast.forecastday[1].date);
-
-    const dayOneConditionIcon = document.querySelector('.dayOneConditionIcon');
-    dayOneConditionIcon.src = await data.forecast.forecastday[1].day.condition.icon; // Uses the icon provided by the API
-    dayOneConditionIcon.alt = "Weather Icon Day One";
 
     const forecastHigh1 = document.getElementById('forecastHigh1');
     forecastHigh1.textContent = await data.forecast.forecastday[1].day.maxtemp_f;
@@ -56,10 +57,6 @@ export default async function weatherInfo(data) {
     const forecastHigh2 = document.getElementById('forecastHigh2');
     forecastHigh2.textContent = await data.forecast.forecastday[2].day.maxtemp_f;
 
-    const dayTwoConditionIcon = document.querySelector('.dayTwoConditionIcon');
-    dayTwoConditionIcon.src = await data.forecast.forecastday[2].day.condition.icon; // Uses the icon provided by the API
-    dayTwoConditionIcon.alt = "Weather Icon Day Two";
-
     const forecastLow2 = document.getElementById('forecastLow2');
     forecastLow2.textContent = await data.forecast.forecastday[2].day.mintemp_f;
 
@@ -70,10 +67,6 @@ export default async function weatherInfo(data) {
     const forecastDay3 = document.getElementById('forecastDay3');
     forecastDay3.textContent = getWeekDay(data.forecast.forecastday[3].date);
 
-    const dayThreeConditionIcon = document.querySelector('.dayThreeConditionIcon');
-    dayThreeConditionIcon.src = await data.forecast.forecastday[3].day.condition.icon; // Uses the icon provided by the API
-    dayThreeConditionIcon.alt = "Weather Icon Day Three";
-
     const forecastHigh3 = document.getElementById('forecastHigh3');
     forecastHigh3.textContent = await data.forecast.forecastday[3].day.maxtemp_f;
 
@@ -82,6 +75,21 @@ export default async function weatherInfo(data) {
 
     const forecastCondition3 = document.getElementById('forecastCondition3');
     forecastCondition3.textContent = await data.forecast.forecastday[3].day.condition.text;
+
+    const iconElements = [
+        document.querySelector('.currentConditionIcon'),
+        document.querySelector('.dayOneConditionIcon'),
+        document.querySelector('.dayTwoConditionIcon'),
+        document.querySelector('.dayThreeConditionIcon')
+    ];
+    
+    /* Set up for weather condition */
+    for (let i = 1; i <= 3; i++ ){
+        const day = data.forecast.forecastday[i].day.code;
+
+        setWeatherIconPath(day + `${i}` + conditionCode, day);
+
+    }
     getWeatherDescriptionByCode();
 } catch (err) {
     console.log('The error is: ', err);
