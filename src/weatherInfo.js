@@ -23,7 +23,6 @@ export default async function weatherInfo(data) {
     const currentCondition = document.getElementById('currentCondition');
     currentCondition.textContent = await data.forecast.forecastday[0].day.condition.text;
     const currentConditionIcon = document.querySelector('.currentConditionIcon');
-    setWeatherIconPath(currentConditionIcon, data.current.condition.code);
     
     const currentHigh = document.getElementById('currentHigh');
     currentHigh.textContent = await data.forecast.forecastday[0].day.maxtemp_f;
@@ -82,13 +81,16 @@ export default async function weatherInfo(data) {
         document.querySelector('.dayTwoConditionIcon'),
         document.querySelector('.dayThreeConditionIcon')
     ];
-    
+
     /* Set up for weather condition */
-    for (let i = 1; i <= 3; i++ ){
-        const day = data.forecast.forecastday[i].day.code;
-
-        setWeatherIconPath(day + `${i}` + conditionCode, day);
-
+    for (let i = 0; i <= 3; i++ ){
+        let conditionCode;
+        if (i === 0) {
+            conditionCode = data.current.condition.code;
+        } else {
+            conditionCode = data.forecast.forecastday[i].day.condition.code;
+        }
+        setWeatherIconPath(iconElements[i], conditionCode);
     }
     getWeatherDescriptionByCode();
 } catch (err) {
