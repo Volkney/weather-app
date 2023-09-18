@@ -1,5 +1,6 @@
 import { getWeekDay } from './weekDay';
 import {getWeatherIconByCode} from './weatherIcons';
+import LocationIConPath from './images/svg/location.svg';
 
 function setWeatherIconPath (element, conditionCode) {
     const iconPath = getWeatherIconByCode(conditionCode);
@@ -11,6 +12,9 @@ function setWeatherIconPath (element, conditionCode) {
 export default async function weatherInfo(data) {
   try {
     // Current day
+    const locationIcon = document.querySelector('.location');
+    locationIcon.src = LocationIConPath;
+
     const cityResult = document.getElementById('cityResult');
     cityResult.textContent = await data.location.name;
 
@@ -22,17 +26,16 @@ export default async function weatherInfo(data) {
     const currentCondition = document.getElementById('currentCondition');
     currentCondition.textContent = await data.current.condition.text;
     
-    const currentHigh = document.getElementById('currentHigh');
+   /*  const currentHigh = document.getElementById('currentHigh');
     currentHigh.textContent = await data.forecast.forecastday[0].day.maxtemp_f;
 
     const currentLow = document.getElementById('currentLow');
     currentLow.textContent = await data.forecast.forecastday[0].day.mintemp_f;
 
+    const humidity = document.getElementById('humidity');
+    humidity.textContent = await data.current.humidity; */
     const feelsLikeTemp = document.getElementById('feelsLikeTemp');
     feelsLikeTemp.textContent = await data.current.feelslike_f;
-
-    const humidity = document.getElementById('humidity');
-    humidity.textContent = await data.current.humidity;
 
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');

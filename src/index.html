@@ -18,7 +18,7 @@
       </div>
 
       <div class="condition-container">
-        <p><span id="currentCondition"></span></p>
+        <p id="currentCondition"></p>
         <img class="currentConditionIcon icon" alt="Weather Icon">
       </div>
 
@@ -32,20 +32,19 @@
       
       <div class="current-container">
         <form id="weatherForm">
-          <label for="city">Enter City:</label>
+          <img src="" alt="location icon" class="location icon">
           <input type="text" id="city" name="city" required>
-          <button type="submit" id="subtmitBtn">Get Weather</button>
         </form>
         <p id="cityResult"></p>
-        <p>Humidity: <span id="humidity"></span></p>
-        <p>Current Temperature: <span id="currentTemp"></span></p>
-        <p>H: <span id="currentHigh"></span></p>
-        <p>L: <span id="currentLow"></span></p>
+        <!-- <p>Humidity: <span id="humidity"></span></p> -->
+        <p id="currentTemp"></p>
+        <!-- <p>H: <span id="currentHigh"></span></p>
+        <p>L: <span id="currentLow"></span></p> -->
       </div>
 
-      <div class="forecast-container">
+      <div class="forecast-container"> Next Two Day Forecast
          <!-- Days after current day -->
-          <ul id="forecastList">
+          <ul id="forecastList"> 
             <li class="dayForecast">
               <div class="space-container">
                 <div class="icon-container">

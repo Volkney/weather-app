@@ -4,17 +4,22 @@ import './style.css';
 import weatherInfo from './weatherInfo';
 
 async function main(){
-  const form = document.getElementById('weatherForm')
+  // Load the default city's weather when the app starts
+  const defaultData = await getWeather();
+  weatherInfo(defaultData);
+
+  const form = document.getElementById('weatherForm');
+  const cityInput = document.getElementById('city');
+
   form.addEventListener('submit', async(event)=>{
     event.preventDefault();
-  try {
-    const data = await getWeather();
-    //console.log(data);
+    const cityName = cityInput.value;
+    const data = cityName ? await getWeather(cityName) : await getWeather();
     weatherInfo(data);
-  }
-  catch (error){
-    console.error('An error has ocurred: ', error)
-    }  
+    cityInput.value = '';
   });
 }
-main();
+
+document.addEventListener("DOMContentLoaded", function() {
+  main();
+});
