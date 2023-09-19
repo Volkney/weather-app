@@ -51,7 +51,6 @@ export function getWeatherIconByCode(code) {
     }
 
     if (iconMapping[code]) {
-        console.log(iconMapping[code]);
         return iconMapping[code];
     } else {
         return 'cloud-refresh.svg'; // Return a default icon if the code doesn't match any in the mapping

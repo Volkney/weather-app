@@ -2,6 +2,7 @@ import _ from 'lodash';
 import getWeather from './data';
 import './style.css';
 import weatherInfo from './weatherInfo';
+import createHourlyItem from './generateHourItems';
 
 async function main(){
   // Load the default city's weather when the app starts
@@ -16,6 +17,7 @@ async function main(){
     const cityName = cityInput.value;
     const data = cityName ? await getWeather(cityName) : await getWeather();
     weatherInfo(data);
+    createHourlyItem(data);
     cityInput.value = '';
   });
 }
