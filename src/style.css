@@ -4,6 +4,7 @@
  */
 
 body {
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +44,12 @@ main{
 #currentCondition{
     font-size: 70px;
     padding: 0 1rem;
+}
+.text {
+    padding: 0 1rem;
     margin: 0;
 }
+
 .right-container {
     display: flex;
     flex: 1;

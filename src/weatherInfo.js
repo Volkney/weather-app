@@ -19,7 +19,7 @@ export default async function weatherInfo(data) {
     cityResult.textContent = await data.location.name;
 
     const currentTemp = document.getElementById('currentTemp');
-    currentTemp.textContent = await data.current.temp_f;
+    currentTemp.textContent = `${data.current.temp_f} °F`;
 
     const currentDay = document.getElementById('currentDay');
     currentDay.textContent = getWeekDay(data.forecast.forecastday[0].date);
@@ -35,7 +35,7 @@ export default async function weatherInfo(data) {
     const humidity = document.getElementById('humidity');
     humidity.textContent = await data.current.humidity; */
     const feelsLikeTemp = document.getElementById('feelsLikeTemp');
-    feelsLikeTemp.textContent = await data.current.feelslike_f;
+    feelsLikeTemp.textContent = `${data.current.feelslike_f} °F`;
 
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');
