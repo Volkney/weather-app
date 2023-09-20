@@ -43,6 +43,7 @@ module.exports = {
             options: {
               esModule: false,
               name: 'icons/[name].[hash].[ext]',
+              outputPath: 'icons/',
             },
           },
         ],

@@ -4,7 +4,7 @@
  */
 
 body {
-    overflow: scroll;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,19 +82,23 @@ main{
 
 .hourly-container{
     flex: 2;
-    /* width: 60rem; */
     flex-shrink: 0;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(auto, 5rem);
-    gap: 1rem;
+    gap: 4vmin;
     overflow-x: auto;
     overscroll-behavior-inline:contain;
+    justify-content: center;
+    align-items: center;
 }
 .hourly-item{
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    height: 60%;
+    justify-content: center;
+    padding: 0.5rem;
  }
 .hour-icon {
     height: 2rem;
@@ -130,12 +134,11 @@ main{
 .icon {
     height: 54px;
     width: 54px;
-/*     filter: brightness(0) saturate(100%) invert(100%) sepia(51%) saturate(313%) hue-rotate(203deg) brightness(114%) contrast(93%);;
- */}
+}
  .location {
-    height: 1em;
-    width: 1em;
-    margin-right: 1em;
+    height: 1.3em;
+    width: 1.3em;
+    margin-right: 0.4em;
  }
 
 

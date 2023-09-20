@@ -3,11 +3,13 @@ import getWeather from './data';
 import './style.css';
 import weatherInfo from './weatherInfo';
 import createHourlyItem from './generateHourItems';
+import setFavicon from './setFavicon';
 
 async function main(){
   // Load the default city's weather when the app starts
   const defaultData = await getWeather();
   weatherInfo(defaultData);
+  createHourlyItem(defaultData);
 
   const form = document.getElementById('weatherForm');
   const cityInput = document.getElementById('city');
@@ -24,4 +26,5 @@ async function main(){
 
 document.addEventListener("DOMContentLoaded", function() {
   main();
+  setFavicon();
 });
