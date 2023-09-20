@@ -2,7 +2,9 @@
     border: 1px solid black;
 }
  */
-
+:root{
+    --border-amount: 6px;
+}
 body {
     overflow: hidden;
     display: flex;
@@ -29,6 +31,7 @@ main{
     display: flex;
     border: 1px solid black;
     width: 95%;
+    height: 90%;
 }
 
 .left-container {
@@ -44,11 +47,10 @@ main{
 }
 #currentCondition{
     font-size: 70px;
-    padding: 0 1rem;
+    margin-bottom: 0;
 }
 .text {
     padding: 0 1rem;
-    margin: 0;
 }
 
 .right-container {
@@ -60,7 +62,7 @@ main{
 .date-container{
     display: flex;
     justify-content: end;
-    align-items: end;
+    align-items:start;
     gap: 1em;
     flex: 1;
 }
@@ -70,7 +72,7 @@ main{
     align-items: end;
     justify-content: end;
     border-bottom: 1px solid black;
-    flex: 4;
+    flex: 3;
 }
 
 .current-container{
@@ -87,14 +89,11 @@ main{
     overflow-x: auto;
     align-items: center;
 }
-/* .hourly-container > :first-child{
-    padding-left: 80em;
-} */
 .hourly-item{
     border: 1px solid black;
+    border-radius: var(--border-amount);
     display: flex;
     flex-direction: column;
-    height: 60%;
     justify-content: center;
     padding: 0.5rem;
  }
@@ -104,6 +103,10 @@ main{
 .hour-icon {
     height: 2rem;
     width: 2rem;
+    border: 1px solid black;
+    margin: 0.5em 0 0.5em 0;
+    padding: 3px;
+    border-radius: var(--border-amount);
 }
 
 .forecast-container{

@@ -33,7 +33,7 @@ export default function createHourlyItem(data){
         hourlyItem.innerHTML = `<span class= "hour"> ${hourOnly}</span>
         <span class= "hourly-item-container"><img src="" alt="${currentConditions}" class="condition-icon${i} hour-icon" /></span>
         <span class= "temp"> ${currentTemp}°</span>`;
-        hourlyContainer.scrollLeft = 0;
+        hourlyContainer.scrollLeft = 200;
         hourlyContainer.appendChild(hourlyItem);
 
         const iconElement = document.querySelector(`.condition-icon${i}`);
