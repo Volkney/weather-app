@@ -4,7 +4,7 @@
  */
 
 body {
-    overflow: hidden;
+    overflow: scroll;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +36,7 @@ main{
     flex: 2;
     flex-direction: column;
     border-right: 1px solid black;
+    overflow: hidden;
 }
 
 .currentConditionIcon{
@@ -81,7 +82,25 @@ main{
 
 .hourly-container{
     flex: 2;
+    /* width: 60rem; */
+    flex-shrink: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(auto, 5rem);
+    gap: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-inline:contain;
 }
+.hourly-item{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+ }
+.hour-icon {
+    height: 2rem;
+    width: 2rem;
+}
+
 
 #forecastList{
     display: flex;
@@ -118,3 +137,5 @@ main{
     width: 1em;
     margin-right: 1em;
  }
+
+
