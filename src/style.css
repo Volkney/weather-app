@@ -36,7 +36,7 @@ main{
     flex: 2;
     flex-direction: column;
     border-right: 1px solid black;
-    overflow: hidden;
+    overflow:auto;
 }
 
 .currentConditionIcon{
@@ -82,16 +82,14 @@ main{
 
 .hourly-container{
     flex: 2;
-    flex-shrink: 0;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(auto, 5rem);
+    display: flex;
     gap: 4vmin;
     overflow-x: auto;
-    overscroll-behavior-inline:contain;
-    justify-content: center;
     align-items: center;
 }
+/* .hourly-container > :first-child{
+    padding-left: 80em;
+} */
 .hourly-item{
     border: 1px solid black;
     display: flex;
@@ -100,19 +98,14 @@ main{
     justify-content: center;
     padding: 0.5rem;
  }
+ .hourly-item > * {
+    text-align: center;
+ }
 .hour-icon {
     height: 2rem;
     width: 2rem;
 }
 
-
-#forecastList{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-}
 .forecast-container{
     text-align: center;
 }
