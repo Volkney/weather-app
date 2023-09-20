@@ -37,15 +37,16 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name: 'icons/[name].[hash].[ext]',
-                    },
-                },
-            ],
-      },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+              name: 'icons/[name].[hash].[ext]',
+            },
+          },
+        ],
+      },      
     ],
   },
 };

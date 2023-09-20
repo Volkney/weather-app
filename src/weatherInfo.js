@@ -2,13 +2,11 @@ import { getWeekDay } from './weekDay';
 import {getWeatherIconByCode} from './weatherIcons';
 import LocationIConPath from './images/svg/location.svg';
 
-function setWeatherIconPath (element, conditionCode) {
+function setWeatherIconPath(element, conditionCode) {
     const iconPath = getWeatherIconByCode(conditionCode);
-    const weatherIcon = require(`./images/svg/${iconPath}`);
-    element.src = weatherIcon;
-    element.alt = `${iconPath} icon`;
+    element.src = iconPath; 
+    element.alt = `${conditionCode}.svg`; 
 }
-
 export default async function weatherInfo(data) {
   try {
     // Current day

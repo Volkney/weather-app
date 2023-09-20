@@ -1,10 +1,9 @@
 import { getWeatherIconByCode } from "./weatherIcons";
 
-function setWeatherIconPath (element, conditionCode) {
+function setWeatherIconPath(element, conditionCode) {
     const iconPath = getWeatherIconByCode(conditionCode);
-    const weatherIcon = require(`./images/svg/${iconPath}`);
-    element.src = weatherIcon;
-    element.alt = `${iconPath} icon`;
+    element.src = iconPath; 
+    element.alt = `${iconPath.split('/').pop()} icon`; // Extracts the filename from the path for the alt description
 }
 
 export default function createHourlyItem(data){
