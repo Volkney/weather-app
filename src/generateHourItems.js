@@ -6,6 +6,14 @@ function setWeatherIconPath(element, conditionCode) {
     element.alt = `${iconPath}.svg`; 
 }
 
+function centerCurrentHour(hourlyContainer, cityCurrentHour) {
+    const currentHourlyItem = hourlyContainer.querySelector(`#hourly-item${cityCurrentHour}`);
+    if (!currentHourlyItem) return;
+
+    const offset = (hourlyContainer.clientWidth / 2) - (currentHourlyItem.clientWidth / 2);
+    hourlyContainer.scrollLeft = currentHourlyItem.offsetLeft - offset;
+}
+
 export default function createHourlyItem(data){
     const hourlyContainer = document.querySelector('.hourly-container');
     hourlyContainer.innerHTML = '';
@@ -22,10 +30,7 @@ export default function createHourlyItem(data){
         let apiHourTime = apiInitialPath.time;
         let hourOnly = apiHourTime.split(" ")[1]; // This split just the hour that we want
 
-        // Check if the api hour matches the current hour
-        if (parseInt(hourOnly.split(" ")[0]) === cityCurrentHour){
-            hourOnly = "Now";
-        }
+       
         let currentTemp = apiInitialPath.temp_f;
 
         //console.log(`the Condition is ${currentConditions} for the hour: ${hourOnly}`);
@@ -38,6 +43,12 @@ export default function createHourlyItem(data){
         hourlyItem.className = 'hourly-item';
         hourlyItem.id = `hourly-item${i}`;
 
+         // Check if the api hour matches the current hour
+         if (parseInt(hourOnly.split(":")[0]) === cityCurrentHour){
+            hourOnly = "Now";
+            hourlyItem.classList.add('active');
+        }
+
         // Create elements to append to hourly container
         hourlyItem.innerHTML = `<span class= "hour"> ${hourOnly}</span>
         <span class= "hourly-item-container"><img src="" alt="${currentConditions}" class="condition-icon${i} hour-icon" /></span>
@@ -47,5 +58,5 @@ export default function createHourlyItem(data){
         const iconElement = document.querySelector(`.condition-icon${i}`);
         setWeatherIconPath(iconElement, conditionCode);
     }
-  
+    centerCurrentHour(hourlyContainer, cityCurrentHour);
 }

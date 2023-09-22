@@ -17,7 +17,7 @@ export default async function weatherInfo(data) {
     cityResult.textContent = await data.location.name;
 
     const currentTemp = document.getElementById('currentTemp');
-    currentTemp.textContent = `${data.current.temp_f} °F`;
+    currentTemp.textContent = `${Math.round(data.current.temp_f)} °F`;
 
     const currentDay = document.getElementById('currentDay');
     currentDay.textContent = getWeekDay(data.forecast.forecastday[0].date);
@@ -33,33 +33,33 @@ export default async function weatherInfo(data) {
     const humidity = document.getElementById('humidity');
     humidity.textContent = await data.current.humidity; */
     const feelsLikeTemp = document.getElementById('feelsLikeTemp');
-    feelsLikeTemp.textContent = `${data.current.feelslike_f} °F`;
+    feelsLikeTemp.textContent = `${Math.round(data.current.feelslike_f)} °F`;
 
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');
     forecastDay1.textContent = getWeekDay(data.forecast.forecastday[1].date);
 
     const forecastHigh1 = document.getElementById('forecastHigh1');
-    forecastHigh1.textContent = await data.forecast.forecastday[1].day.maxtemp_f;
+    forecastHigh1.textContent = `${Math.round(data.forecast.forecastday[1].day.maxtemp_f)}°`;
 
     const forecastLow1 = document.getElementById('forecastLow1');
-    forecastLow1.textContent = await data.forecast.forecastday[1].day.mintemp_f;
+    forecastLow1.textContent = `${Math.round(data.forecast.forecastday[1].day.mintemp_f)}°`;
 
     const forecastCondition1 = document.getElementById('forecastCondition1');
-    forecastCondition1.textContent = await data.forecast.forecastday[1].day.condition.text;
+    forecastCondition1.textContent = (data.forecast.forecastday[1].day.condition.text);
 
     // Forecast for Day 2
     const forecastDay2 = document.getElementById('forecastDay2');
     forecastDay2.textContent = getWeekDay(data.forecast.forecastday[2].date);
 
     const forecastHigh2 = document.getElementById('forecastHigh2');
-    forecastHigh2.textContent = await data.forecast.forecastday[2].day.maxtemp_f;
+    forecastHigh2.textContent = `${Math.round(data.forecast.forecastday[2].day.maxtemp_f)}°`;
 
     const forecastLow2 = document.getElementById('forecastLow2');
-    forecastLow2.textContent = await data.forecast.forecastday[2].day.mintemp_f;
+    forecastLow2.textContent = `${Math.round(data.forecast.forecastday[2].day.mintemp_f)}°`;
 
     const forecastCondition2 = document.getElementById('forecastCondition2');
-    forecastCondition2.textContent = await data.forecast.forecastday[2].day.condition.text;
+    forecastCondition2.textContent = data.forecast.forecastday[2].day.condition.text;
 
 
     const iconElements = [
