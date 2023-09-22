@@ -13,6 +13,23 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    url(./images/regular-images/rainy.jpg);;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.background {
+    /* Glassmorphism effect */
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;  /* To place it behind main */
 }
 
 #weatherForm {
@@ -29,9 +46,24 @@ body {
 
 main{
     display: flex;
-    border: 1px solid black;
+    border-width: 6px;
+    border-style: solid;
+    border-image: linear-gradient(
+        to bottom, 
+        gray,
+        white,
+        rgba(0, 0, 0, 0)
+      ) 1 100%;;
+    border-radius: var(--border-amount);
     width: 95%;
     height: 90%;
+    background-color: #FFF; /* or whatever color you want the main content to have */
+    z-index: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(./images/regular-images/rainy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .left-container {
@@ -50,13 +82,19 @@ main{
     margin-bottom: 0;
 }
 .text {
-    padding: 0 1rem;
+    padding: 0 1.2rem;
 }
 
 .right-container {
     display: flex;
     flex: 1;
     flex-direction: column;
+    /* Glassmorphism */
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 5px );
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .date-container{
@@ -74,8 +112,19 @@ main{
     display: flex;
     align-items: end;
     justify-content: end;
-    border-bottom: 1px solid black;
     flex: 3;
+    position: relative;
+}
+
+.condition-container::before{
+    content: '';
+    display: block;
+    width: 95%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    left: 2.5%;
+    transform: translateY(-50%);
 }
 
 .current-container{
@@ -91,14 +140,17 @@ main{
     gap: 4vmin;
     overflow-x: auto;
     align-items: center;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 
 .hourly-container > :first-child{
-    margin-left: 2em;
+    margin-left: 2.5%;
+    
 }
 
 .hourly-container > :last-child{
-    margin-right: 2em;
+    margin-right: 2.5%;
 }
 .hourly-item{
     border: 1px solid black;

@@ -1,86 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
+    <!-- Make sure to link your CSS file -->
+    <link rel="stylesheet" href="your-css-file.css">
 </head>
+
 <body>
-  <main>
-    <!-- below should be the background img -->
-
-    <!-- left container -->
-    <div class="left-container">
-      <div class="date-container">
-        <p><span id="currentDay" class="text"></span></p>
-        <p class="feels-like"> Feels Like: <span id="feelsLikeTemp" class="text"></span> </p>
-      </div>
-
-      <div class="condition-container">
-        <p id="currentCondition" class="text"></p>
-        <img class="currentConditionIcon icon" alt="Weather Icon">
-      </div>
-
-      <div class="hourly-container">
-
-      </div>
-    </div>
-
-    <!-- right container -->
-    <div class="right-container">
-      
-      <div class="current-container">
-        <form id="weatherForm">
-          <img src="" alt="location icon" class="location icon">
-          <input type="text" id="city" name="city" required>
-        </form>
-        <p id="cityResult"></p>
-        <!-- <p>Humidity: <span id="humidity"></span></p> -->
-        <p id="currentTemp"></p>
-        <!-- <p>H: <span id="currentHigh"></span></p>
-        <p>L: <span id="currentLow"></span></p> -->
-      </div>
-
-      <div class="forecast-container"> Next Two Day Forecast
-         <!-- Days after current day -->
-          <ul id="forecastList"> 
-            <li class="dayForecast">
-              <div class="space-container">
-                <div class="icon-container">
-                  <img class="dayOneConditionIcon icon" alt="Weather Icon">
-                </div>
-                <div class="condition-text-container">
-                  <p><span id="forecastDay1"></span></p>
-                  <p><span id="forecastCondition1"></span></p>
-                </div>
-              </div>
-              <div class="low-high-temp-container">
-                <p id="forecastHigh1"></p>
-                <p id="forecastLow1"></p>
-              </div>
-            </li>
-            <li class="dayForecast">
-              <div class="space-container">
-                <div class="icon-container">
-                  <img class="dayTwoConditionIcon icon" alt="Weather Icon">
-                </div>
-                <div class="condition-text-container">
-                  <p id="forecastDay2"></p>
-                  <p id="forecastCondition2"></p>
-                </div>
-              </div>
-              
-              <div class="low-high-temp-container">
-                <p id="forecastHigh2"></p>
-                <p id="forecastLow2"></p>
-              </div>
-            </li>
-          </ul>
-      </div>
-     
-
-    </div>
-  </main>
+    <div class="background"></div>
     
+    <main>
+        <!-- left container -->
+        <div class="left-container">
+            <div class="date-container">
+                <p><span id="currentDay" class="text"></span></p>
+                <p class="feels-like"> Feels Like: <span id="feelsLikeTemp" class="text"></span> </p>
+            </div>
+
+            <div class="condition-container">
+                <p id="currentCondition" class="text"></p>
+                <img class="currentConditionIcon icon" alt="Weather Icon">
+            </div>
+
+            <div class="hourly-container">
+
+            </div>
+        </div>
+
+        <!-- right container -->
+        <div class="right-container">
+
+            <div class="current-container">
+                <form id="weatherForm">
+                    <img src="" alt="location icon" class="location icon">
+                    <input type="text" id="city" name="city" required>
+                </form>
+                <p id="cityResult"></p>
+                <p id="currentTemp"></p>
+            </div>
+
+            <div class="forecast-container"> Next Two Day Forecast
+                <!-- Days after current day -->
+                <ul id="forecastList">
+                    <li class="dayForecast">
+                        <div class="space-container">
+                            <div class="icon-container">
+                                <img class="dayOneConditionIcon icon" alt="Weather Icon">
+                            </div>
+                            <div class="condition-text-container">
+                                <p><span id="forecastDay1"></span></p>
+                                <p><span id="forecastCondition1"></span></p>
+                            </div>
+                        </div>
+                        <div class="low-high-temp-container">
+                            <p id="forecastHigh1"></p>
+                            <p id="forecastLow1"></p>
+                        </div>
+                    </li>
+                    <li class="dayForecast">
+                        <div class="space-container">
+                            <div class="icon-container">
+                                <img class="dayTwoConditionIcon icon" alt="Weather Icon">
+                            </div>
+                            <div class="condition-text-container">
+                                <p id="forecastDay2"></p>
+                                <p id="forecastCondition2"></p>
+                            </div>
+                        </div>
+
+                        <div class="low-high-temp-container">
+                            <p id="forecastHigh2"></p>
+                            <p id="forecastLow2"></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
 </body>
+
 </html>
