@@ -1,7 +1,4 @@
-/* * {
-    border: 1px solid black;
-}
- */
+
 :root{
     --border-amount: 6px;
     --blue: #3D75AC;
@@ -17,19 +14,26 @@
     --mauve: #ffc6ffff;
     --baby-powder: #fffffcff;
 }
-body {
+
+body, .glass-container {
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
+    
+}
+
+body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: url(./images/bg-reduced-images/The-Beach-1-dragged.webp) no-repeat center center fixed;
-    background-size: cover;
-    /* animation: glow 120s infinite alternate; */
+    background: url(./images/bg-reduced-images/The-Beach-1-dragged.webp) no-repeat ;
+    background-position: top 30% left 10%;
+    background-size: 100%;
+    /* animation: glow 1000s infinite alternate; */
     color: white;
 }
+
 
 @keyframes glow {
     0%{
@@ -50,23 +54,27 @@ body {
 
 
 main{
+    position: relative;
     display: flex;
     border-width: 6px;
     border-style: solid;
-    border-image: linear-gradient(
-        to bottom, 
-        gray,
-        white,
-        rgba(0, 0, 0, 0)
-      ) 1 100%;;
     border-radius: var(--border-amount);
     width: 95%;
     height: 90%;
 }
 
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(67, 66, 66, 0.2); 
+}
 .left-container {
     display: flex;
-    flex: 2;
+    flex: 3;
     flex-direction: column;
     border-right: 1px solid white;
     overflow:auto;
@@ -86,6 +94,7 @@ main{
 }
 .text {
     padding: 0 1.2rem;
+    font-size: 2rem;
 }
 
 .right-container {
@@ -103,12 +112,17 @@ main{
 .date-container{
     display: flex;
     justify-content: end;
-    align-items:start;
+    align-items: center;
     flex: 1;
 }
+.date-container > :first-child{
+    margin-top: 0.7em;
+}
+
 #feelsLikeTemp{
     gap: 0;
     padding-left: 0;
+    
 }
 
 .condition-container {
@@ -145,6 +159,13 @@ main{
     align-items: center;
     margin-left: 2.5%;
     margin-right: 2.5%;
+    position: relative;
+}
+
+.hourly-container::before{
+    content: '';
+    position: absolute;
+    background: linear-gradient(180deg, rgba(61,117,172,0.8744091386554622) 35%, rgba(5,16,19,0.8295912114845938) 69%);
 }
 
 .hourly-container > :first-child{
@@ -162,13 +183,19 @@ main{
     flex-direction: column;
     justify-content: center;
     padding: 0.5rem;
+    /* Glassmorphism */
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 5px );
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
  }
  .hourly-item > * {
     text-align: center;
  }
 .hour-icon {
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     border: 1px solid white;
     margin: 0.5em 0 0.5em 0;
     padding: 3px;
@@ -190,7 +217,7 @@ main{
     padding: 1em;
 }
 
-#forecastHigh1::before, #forecastLow1::before, #forecastHigh2::before, #forecastLow2::before, .feels-like::before {
+#forecastHigh1::before, #forecastLow1::before, #forecastHigh2::before, #forecastLow2::before, .feels-like::before  {
     content: "";
     display: block;
     height: 100%;
@@ -207,12 +234,16 @@ main{
     padding-left: 1.5em;  /* Add space for the line */
 }
 
+.feels-like{
+    font-size: 2rem;
+}
+
 .condition-text-container{
     text-align: left;
 }
 .icon {
-    height: 54px;
-    width: 54px;
+    height: 64px;
+    width: 64px;
 }
  .location {
     height: 1.3em;
@@ -223,5 +254,10 @@ main{
  .active{
     background-color: black;
     color: white;
+ }
+
+ .temp {
+    font-size: 20px;
+    font-weight: bold;
  }
 
