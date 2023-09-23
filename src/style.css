@@ -25,9 +25,9 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-image: url(./images/regular-images/sunny.jpeg);
-    background-size: 120%;
-    animation: glow 130s infinite alternate;
+    background-image: url(./images/bg-reduced-images/The-Beach-1-dragged.webp);
+    background-size: 100%;
+    /* animation: glow 120s infinite alternate; */
     color: white;
 }
 
