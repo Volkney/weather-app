@@ -235,18 +235,18 @@ main::before {
 }
 .low-high-temp-container{
     text-align: right;
-    padding: 1em;
+    padding-right: 4rem;
 }
 
 #forecastHigh1::before, #forecastLow1::before, #forecastHigh2::before, #forecastLow2::before, .feels-like::before  {
     content: "";
     display: block;
-    height: 90%;
+    height: 100%;
     width: 1px;   /* Width of the line */
     background-color: white;   /* Color of the line */
     position: absolute;
     left: 0;
-    top: 55%;
+    top: 50%;
     transform: translateY(-50%);
 }
 
