@@ -28,5 +28,9 @@ async function main(){
 document.addEventListener("DOMContentLoaded", function() {
   main();
   setFavicon();
-  fadeOutLoaders();
 });
+
+window.addEventListener('load', function(){
+  fadeOutLoaders();
+  document.querySelector("main").style.display = "flex";
+})
