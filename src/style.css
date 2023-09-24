@@ -3,7 +3,6 @@
     --border-amount: 6px;
     --blue: #3D75AC;
     --big-font: 80px;
-    --blue: #3D75AC;
     --melon: #ffadadff;
     --sunset: #ffd6a5ff;
     --cream: #fdffb6ff;
@@ -15,6 +14,9 @@
     --baby-powder: #fffffcff;
 }
 
+#cloud{
+    color: green;
+}
 
 body {
     overflow: hidden;

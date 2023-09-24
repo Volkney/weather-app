@@ -1,24 +1,24 @@
 import sunny from './images/svg/sunny.svg';
 import partlyCloudy from './images/svg/cloudy.svg';
 import cloudy from './images/svg/cloudy.svg';
-import overcast from './images/svg/overcast.svg';
-import fog from './images/svg/fog.svg';
-import patchyRainPossible from './images/svg/moderate-rain-at-times.svg';
-import patchySnowPossible from './images/svg/patchy-snow-possible.svg';
+import overcast from './images/svg/cloudy.svg';
+import fog from './images/svg/cloudy.svg';
+import patchyRainPossible from './images/svg/moderate-rain.svg';
+import patchySnowPossible from './images/svg/blizzard.svg';
 import sleet from './images/svg/sleet.svg';
-import patchyFreezingDrizzlePossible from './images/svg/patchy-freezing-drizzle-possible.svg';
+import patchyFreezingDrizzlePossible from './images/svg/patchy-freezing-drizzle.svg';
 import thunderyOutbreaksPossible from './images/svg/thundery-outbreaks-possible.svg';
-import blowingSnow from './images/svg/blowing-snow.svg';
+import blowingSnow from './images/svg/blizzard.svg';
 import blizzard from './images/svg/blizzard.svg';
-import patchyLightDrizzle from './images/svg/patchy-light-drizzle.svg';
-import lightDrizzle from './images/svg/light-drizzle.svg';
+import patchyLightDrizzle from './images/svg/patchy-freezing-drizzle.svg';
+import lightDrizzle from './images/svg/patchy-freezing-drizzle.svg';
 import lightRain from './images/svg/light-rain.svg';
-import moderateRainAtTimes from './images/svg/light-rain.svg';
+import moderateRainAtTimes from './images/svg/moderate-rain.svg';
 import lightFreezingRain from './images/svg/light-freezing-rain.svg';
-import snow from './images/svg/snow.svg';
-import hail from './images/svg/hail.svg';
-import torrentialRainShower from './images/svg/torrential-rain-shower.svg';
-import patchyLightRainWithThunder from './images/svg/patchy-light-rain-with-thunder.svg';
+import snow from './images/svg/blizzard.svg';
+import hail from './images/svg/blizzard.svg';
+import torrentialRainShower from './images/svg/patchy-freezing-drizzle.svg';
+import patchyLightRainWithThunder from './images/svg/thundery-outbreaks-possible.svg';
 import cloudRefresh from './images/svg/cloud-refresh.svg';  // Default fallback icon
 
 
