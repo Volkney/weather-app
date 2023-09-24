@@ -4,6 +4,7 @@ import './style.css';
 import weatherInfo from './weatherInfo';
 import createHourlyItem from './generateHourItems';
 import setFavicon from './setFavicon';
+import { fadeOutLoaders } from './loader'
 
 async function main(){
   // Load the default city's weather when the app starts
@@ -27,4 +28,5 @@ async function main(){
 document.addEventListener("DOMContentLoaded", function() {
   main();
   setFavicon();
+  fadeOutLoaders();
 });
