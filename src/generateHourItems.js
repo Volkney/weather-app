@@ -20,6 +20,12 @@ export default function createHourlyItem(data){
     const cityLocalTime = data.location.localtime;
     const cityCurrentHour = parseInt(cityLocalTime.split(" ")[1].split(":")[0]);
 
+    hourlyContainer.innerHTML = `<div id="image-track" data-mouse-down-at="0" data-prev-percentage="0"></div>`
+    hourlyContainer.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        this.scrollLeft += e.deltaY * 0.2; 
+    });
+
     let hourApiPath = data.forecast.forecastday[0].hour
     for(let i = 0; i < hourApiPath.length; i++){
         const apiInitialPath = data.forecast.forecastday[0].hour[i];
@@ -50,11 +56,44 @@ export default function createHourlyItem(data){
         }
 
         // Create elements to append to hourly container
-        hourlyItem.innerHTML = `<span class= "hour"> ${hourOnly}</span>
+        
+        hourlyItem.innerHTML = `
+        <span class= "hour"> ${hourOnly}</span>
         <span class= "hourly-item-container"><img src="" alt="${currentConditions}" class="condition-icon${i} hour-icon" /></span>
         <span class= "temp"> ${Math.round(currentTemp)}°F</span>`;
         hourlyContainer.appendChild(hourlyItem);
 
+        /* delete this after */
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        hourlyContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            hourlyContainer.classList.add('active-scroll');
+            startX = e.pageX - hourlyContainer.offsetLeft;
+            scrollLeft = hourlyContainer.scrollLeft;
+          });
+
+          hourlyContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            hourlyContainer.classList.remove('active-scroll');
+          });
+          hourlyContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            hourlyContainer.classList.remove('active-scroll');
+          });
+          hourlyContainer.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - hourlyContainer.offsetLeft;
+            const walk = (x - startX) * 1; //scroll-fast
+            hourlyContainer.scrollLeft = scrollLeft - walk;
+            console.log(walk);
+          });
+        
+        /* down to here */
         const iconElement = document.querySelector(`.condition-icon${i}`);
         setWeatherIconPath(iconElement, conditionCode);
     }

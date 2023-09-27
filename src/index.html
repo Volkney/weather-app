@@ -22,11 +22,11 @@
     
                 <div class="condition-container">
                     <p id="currentCondition" class="text"></p>
-                    <img class="currentConditionIcon icon" alt="Weather Icon">
+                    
                 </div>
     
                 <div class="hourly-container">
-    
+                    
                 </div>
             </div>
     
@@ -35,10 +35,16 @@
     
                 <div class="current-container">
                     <form id="weatherForm">
-                        <img src="" alt="location icon" class="location icon">
-                        <input type="text" id="city" name="city" required>
+                        <div class="input-icon">
+                            <img src="" alt="location icon" class="location icon">
+                            <img class="currentConditionIcon icon" alt="Weather Icon">
+                            <input type="text" id="city" name="city" placeholder="please enter a city" required>
+                        </div>
                     </form>
-                    <p id="cityResult"></p>
+                    
+                    <p id="cityResult">
+                        
+                    </p>
                     <p id="currentTemp" class="text"></p>
                 </div>
     
