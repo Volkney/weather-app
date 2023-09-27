@@ -11,7 +11,7 @@ function setWeatherIconPath(element, conditionCode, hour) {
 }
 export default async function weatherInfo(data) {
   try {
-    // Current day
+
     const locationIcon = document.querySelector('.location');
     locationIcon.src = LocationIConPath;
 
@@ -69,22 +69,18 @@ export default async function weatherInfo(data) {
     forecastCondition2.textContent = data.forecast.forecastday[2].day.condition.text;
 
 
-    const iconElements = [
-        document.querySelector('.currentConditionIcon'),
-        document.querySelector('.dayOneConditionIcon'),
-        document.querySelector('.dayTwoConditionIcon'),
-    ];
-    /* Set up for weather condition */
-    for (let i = 0; i <= 2; i++ ){
-        let conditionCode;
-        if (i === 0) {
-            conditionCode = data.current.condition.code;
-        } else {
-            conditionCode = data.forecast.forecastday[i].day.condition.code;
-        }
-        setWeatherIconPath(iconElements[i], conditionCode, hour);
-    }
+    const currentIconElement = document.querySelector('.currentConditionIcon');
+    const conditionCodeCurrent = data.current.condition.code;
+    setWeatherIconPath(currentIconElement, conditionCodeCurrent, hour);
     
+    const dayOneIconElement = document.querySelector('.dayOneConditionIcon');
+    const conditionCodeDayOne = data.forecast.forecastday[1].day.condition.code;
+    setWeatherIconPath(dayOneIconElement, conditionCodeDayOne);
+
+    const dayTwoIconElement = document.querySelector('.dayTwoConditionIcon');
+    const conditionCodeDayTwo = data.forecast.forecastday[2].day.condition.code;
+    console.log(conditionCodeDayTwo)
+    setWeatherIconPath(dayTwoIconElement, conditionCodeDayTwo);
     
     
 } catch (err) {

@@ -23,10 +23,8 @@ import patchyLightRainWithThunder from './images/svg/thundery-outbreaks-possible
 import cloudRefresh from './images/svg/cloud-refresh.svg';  // Default fallback icon
 
 
-export function getWeatherIconByCode(code, hour) {
-    console.log(hour);
+export function getWeatherIconByCode(code, hour = '12') {
     const isDaytime = hour >= 6 && hour <= 18;
-    console.log(`daytime is ${isDaytime}`)
     const iconMapping = {
         1000: isDaytime ? sunny : night,
         1003: partlyCloudy,

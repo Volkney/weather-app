@@ -91,7 +91,6 @@ export default function createHourlyItem(data){
             const x = e.pageX - hourlyContainer.offsetLeft;
             const walk = (x - startX) * 1; //scroll-fast
             hourlyContainer.scrollLeft = scrollLeft - walk;
-            console.log(walk);
           });
         
         /* down to here */

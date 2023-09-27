@@ -8,6 +8,5 @@ export default function changeHourFormat(currentHour){
         console.error('Could not parse hour from:', currentHour);
         return;
     }
-    console.log(`this is formatHour: ${hour}`)
     return hour;
 }
