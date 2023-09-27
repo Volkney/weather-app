@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
@@ -16,6 +17,11 @@ module.exports = {
           template: './src/index.html', // Path to your source HTML file
           filename: 'index.html', // Output HTML file in the dist folder
         }),
+        new CopyWebpackPlugin({
+          patterns: [
+            { from: './src/images', to: 'images' },
+          ],
+        }),
       ],
   output: {
     filename: '[name].bundle.js',
@@ -25,16 +31,19 @@ module.exports = {
   optimization: {
     runtimeChunk: 'single',
   },
+  
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+
       {
         test: /\.svg$/,
         use: [
@@ -47,7 +56,20 @@ module.exports = {
             },
           },
         ],
-      },      
+      }, 
+      {
+        test: /\.webp$/,
+        use: [
+          {
+            loader: 'url-loader',
+          options: {
+            limit: false, // no limit
+            name: 'images/[name].[ext]', 
+            outputPath: 'icons/',
+            },
+          },
+        ],
+      },  
     ],
   },
 };

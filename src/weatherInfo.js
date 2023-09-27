@@ -1,6 +1,7 @@
 import { getWeekDay } from './weekDay';
 import {getWeatherIconByCode} from './weatherIcons';
 import LocationIConPath from './images/svg/location.svg';
+import changeBackground  from './changeBackground';
 
 function setWeatherIconPath(element, conditionCode) {
     const iconPath = getWeatherIconByCode(conditionCode);
@@ -33,7 +34,9 @@ export default async function weatherInfo(data) {
     const humidity = document.getElementById('humidity');
     humidity.textContent = await data.current.humidity; */
     const currentHour = document.getElementById('current-hour');
-    currentHour.textContent = data.location.localtime.split(" ")[1]//`${Math.floor(data.current.feelslike_f)}°F`;
+    let currentHourNumber = currentHour.textContent = data.location.localtime.split(" ")[1];
+    console.log(currentHourNumber);
+    changeBackground(currentHourNumber);
 
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');
