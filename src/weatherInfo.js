@@ -2,9 +2,10 @@ import { getWeekDay } from './weekDay';
 import {getWeatherIconByCode} from './weatherIcons';
 import LocationIConPath from './images/svg/location.svg';
 import changeBackground  from './changeBackground';
+import changeHourFormat from './changeHourFormat';
 
-function setWeatherIconPath(element, conditionCode) {
-    const iconPath = getWeatherIconByCode(conditionCode);
+function setWeatherIconPath(element, conditionCode, hour) {
+    const iconPath = getWeatherIconByCode(conditionCode, hour);
     element.src = iconPath; 
     element.alt = `${conditionCode}.svg`; 
 }
@@ -35,8 +36,11 @@ export default async function weatherInfo(data) {
     humidity.textContent = await data.current.humidity; */
     const currentHour = document.getElementById('current-hour');
     let currentHourNumber = currentHour.textContent = data.location.localtime.split(" ")[1];
-    console.log(currentHourNumber);
+
+    //console.log(`I'm calling from weahter ${currentHourNumber}`)
     changeBackground(currentHourNumber);
+    let hour = changeHourFormat(currentHourNumber);
+    
 
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');
@@ -70,7 +74,6 @@ export default async function weatherInfo(data) {
         document.querySelector('.dayOneConditionIcon'),
         document.querySelector('.dayTwoConditionIcon'),
     ];
-
     /* Set up for weather condition */
     for (let i = 0; i <= 2; i++ ){
         let conditionCode;
@@ -79,8 +82,11 @@ export default async function weatherInfo(data) {
         } else {
             conditionCode = data.forecast.forecastday[i].day.condition.code;
         }
-        setWeatherIconPath(iconElements[i], conditionCode);
+        setWeatherIconPath(iconElements[i], conditionCode, hour);
     }
+    
+    
+    
 } catch (err) {
     console.log('The error is: ', err);
   }

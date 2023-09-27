@@ -5,7 +5,6 @@ import weatherInfo from './weatherInfo';
 import createHourlyItem from './generateHourItems';
 import setFavicon from './setFavicon';
 import { fadeOutLoaders } from './loader'
-
 async function main(){
   // Load the default city's weather when the app starts
   const defaultData = await getWeather();

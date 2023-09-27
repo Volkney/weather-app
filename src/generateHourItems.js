@@ -1,7 +1,8 @@
 import { getWeatherIconByCode } from "./weatherIcons";
+import changeHourFormat from './changeHourFormat';
 
-function setWeatherIconPath(element, conditionCode) {
-    const iconPath = getWeatherIconByCode(conditionCode);
+function setWeatherIconPath(element, conditionCode, hour) {
+    const iconPath = getWeatherIconByCode(conditionCode, hour);
     element.src = iconPath; 
     element.alt = `${iconPath}.svg`; 
 }
@@ -19,7 +20,7 @@ export default function createHourlyItem(data){
     hourlyContainer.innerHTML = '';
     const cityLocalTime = data.location.localtime;
     const cityCurrentHour = parseInt(cityLocalTime.split(" ")[1].split(":")[0]);
-
+    
     hourlyContainer.innerHTML = `<div id="image-track" data-mouse-down-at="0" data-prev-percentage="0"></div>`
     hourlyContainer.addEventListener('wheel', function(e) {
         e.preventDefault();
@@ -35,7 +36,7 @@ export default function createHourlyItem(data){
         // Getting current time
         let apiHourTime = apiInitialPath.time;
         let hourOnly = apiHourTime.split(" ")[1]; // This split just the hour that we want
-
+        let hour = changeHourFormat(hourOnly);
        
         let currentTemp = apiInitialPath.temp_f;
 
@@ -95,7 +96,7 @@ export default function createHourlyItem(data){
         
         /* down to here */
         const iconElement = document.querySelector(`.condition-icon${i}`);
-        setWeatherIconPath(iconElement, conditionCode);
+        setWeatherIconPath(iconElement, conditionCode, hour);
     }
     centerCurrentHour(hourlyContainer, cityCurrentHour);
 }
