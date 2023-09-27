@@ -32,18 +32,18 @@ export default async function weatherInfo(data) {
 
     const humidity = document.getElementById('humidity');
     humidity.textContent = await data.current.humidity; */
-    const feelsLikeTemp = document.getElementById('feelsLikeTemp');
-    feelsLikeTemp.textContent = `${Math.round(data.current.feelslike_f)}°F`;
+    const currentHour = document.getElementById('current-hour');
+    currentHour.textContent = data.location.localtime.split(" ")[1]//`${Math.floor(data.current.feelslike_f)}°F`;
 
     // Forecast for Day 1
     const forecastDay1 = document.getElementById('forecastDay1');
     forecastDay1.textContent = getWeekDay(data.forecast.forecastday[1].date);
 
     const forecastHigh1 = document.getElementById('forecastHigh1');
-    forecastHigh1.textContent = `${Math.round(data.forecast.forecastday[1].day.maxtemp_f)}°`;
+    forecastHigh1.textContent = `${Math.floor(data.forecast.forecastday[1].day.maxtemp_f)}°`;
 
     const forecastLow1 = document.getElementById('forecastLow1');
-    forecastLow1.textContent = `${Math.round(data.forecast.forecastday[1].day.mintemp_f)}°`;
+    forecastLow1.textContent = `${Math.floor(data.forecast.forecastday[1].day.mintemp_f)}°`;
 
     const forecastCondition1 = document.getElementById('forecastCondition1');
     forecastCondition1.textContent = (data.forecast.forecastday[1].day.condition.text);
