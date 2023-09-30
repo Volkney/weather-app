@@ -21,8 +21,8 @@ The purpose of this app is to display weather conditions for the city provided a
 ## Repo: [GitHub - Volkney/weather-app](https://github.com/Volkney/weather-app)
 
 ## Preview of background animation:
-[https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG5sNzlnNnVnZm9zbWJzNnI4YjJxcDU5bzVkczFvd213bDkzZHIyeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tzdOmFRZgo3DQ9fRbl/giphy.gif]
-![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG5sNzlnNnVnZm9zbWJzNnI4YjJxcDU5bzVkczFvd213bDkzZHIyeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tzdOmFRZgo3DQ9fRbl/giphy.gif)
+[https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ210aW9wYWg0djQxeTZ4OTBqbjVsbHVvc3lyYXprMHZtdG5pbWJpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tzdOmFRZgo3DQ9fRbl/giphy.gif]
+![Alt Text](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ210aW9wYWg0djQxeTZ4OTBqbjVsbHVvc3lyYXprMHZtdG5pbWJpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tzdOmFRZgo3DQ9fRbl/giphy.gif)
 
 ### Inspiration taken from dribble design:
 
