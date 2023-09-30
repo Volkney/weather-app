@@ -11,8 +11,9 @@ export default async function getWeather(cityName = DEFAULT_CITY) {
     }
 
     const weatherData = await weatherResponse.json();
+
+
     console.log(weatherData);
-    
     return weatherData;
   } catch (error) {
     console.error('An error occurred:', error);

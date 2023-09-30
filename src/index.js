@@ -17,11 +17,17 @@ async function main(){
   form.addEventListener('submit', async(event)=>{
     event.preventDefault();
     const cityName = cityInput.value;
-    const data = cityName ? await getWeather(cityName) : await getWeather();
-    weatherInfo(data);
-    createHourlyItem(data);
-    cityInput.value = '';
+    
+    try {
+      const data = cityName ? await getWeather(cityName) : await getWeather();
+      weatherInfo(data);
+      createHourlyItem(data);
+      cityInput.value = '';
+    } catch (error) {
+      alert(`${cityName} was not found`);
+    }
   });
+  
 }
 
 document.addEventListener("DOMContentLoaded", function() {

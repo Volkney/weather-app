@@ -6,17 +6,17 @@ export default async function changeBackground(currentHour) {
 
     if (hour >= 6 && hour < 8) {
         image = 1;
-    } else if (hour >= 8 && hour < 10) {
+    } else if (hour >= 6 && hour < 8) {
         image = 2;
-    } else if (hour >= 10 && hour < 12) {
+    } else if (hour >= 8 && hour < 10) {
         image = 3;
-    } else if (hour >= 12 && hour < 14) {
+    } else if (hour >= 10 && hour < 12) {
         image = 4;
-    } else if (hour >= 14 && hour < 16) {
+    } else if (hour >= 12 && hour < 14) {
         image = 5;
-    } else if (hour >= 18 && hour < 20) {
+    } else if (hour >= 14 && hour < 16) {
         image = 6;
-    } else if (hour >= 22 && hour <= 23) {
+    } else if (hour >= 16 && hour <= 18) {
         image = 7;
     } else {
         image = 8; // default image
