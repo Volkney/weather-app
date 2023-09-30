@@ -24,7 +24,7 @@ async function main(){
       createHourlyItem(data);
       cityInput.value = '';
     } catch (error) {
-      alert(`${cityName} was not found`);
+      alert(`${cityName} was not found`); // Handling error for cities not found
     }
   });
   
